@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.App
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftDiv, .rightDiv
+{
+  width: 45%;
+  border:1px solid black;
+}
+.leftDiv
+{
+  background-color: lightblue;
+}
+.rightDiv
+{
+  background-color: rgb(4, 128, 0);
+}

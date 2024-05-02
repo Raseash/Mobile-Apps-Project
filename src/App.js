@@ -1,10 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-      
+    <div  className="App">
+       <div className = "leftDiv">
+          This is the left div
+      </div>
+      <div className = "rightDiv">
+        This is the right div
+      </div>
       <StockList />
     </div>
   );
