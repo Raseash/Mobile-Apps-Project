@@ -2,12 +2,22 @@ import './App.css';
 import appleLogo from './AppleLogo.JPG';
 import { useState } from 'react';
 
-
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 function App() {
   const [count, setCount] = useState(0);
-
-  function addCount() {
-    setCount(count + 1);
+  const[inputNumber, setinputNumber] = useState('')
+  
+  const handleinputChange = (e) => {
+    setinputNumber(e.target.value);
+    const num = e.target.value
+    if(!isNaN(num)|| num==='') 
+      {
+        setinputNumber(e.target.value);
+      }
+  }
+  const addCount = () => {
+    setCount(count + inputNumber);
   }
   function subtractCount() {
     setCount(count - 1);
@@ -17,7 +27,7 @@ function App() {
        <div className = "leftDiv">
           This is the left div
           <AppleStock />
-          <StockList count={count} onAdd={addCount} onSubtract={subtractCount} />
+          <StockList inputNumber ={inputNumber} onInputChange={handleinputChange} count={count} onAdd={addCount} onSubtract={subtractCount} />
       </div>
       <div className = "rightDiv">
         <p>Number of Shares bought {count}</p>
@@ -27,24 +37,38 @@ function App() {
 }
 
 
-function StockList({count, onAdd, onSubtract} ) {
+function StockList({count,inputNumber, onInputChange, onAdd, onSubtract} ) {
+
   return (
     <div>
       <h3>Buy and sell your shares</h3>
-      <TextField
+      <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off">
+        <div>
+        <TextField
           id="filled-number"
-          label="Number"
+          label="Share"
           type="number"
+          value= {inputNumber}
+          onChange={onInputChange}
           InputLabelProps={{
             shrink: true,
           }}
           variant="filled"
         />
+        </div>
+      </Box>
+    
       <button onClick={onAdd}>
-      Buy one share
+      Buy share
       </button>
       <button onClick={onSubtract}>
-      Sell one share
+      Sell share
       </button>
     </div>
   );
