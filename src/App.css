@@ -40,21 +40,30 @@
 .App
 {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 }
-.leftDiv, .rightDiv
-{
-  width: 45%;
-  border:1px solid black;
-}
-.leftDiv
-{
-  background-color: lightblue;
+.leftDiv{
+  padding-top: 20px;
+  width: 38%;
+  
+  /* background-color: lightblue; */
 }
 .rightDiv
 {
-  background-color: rgb(0, 128, 107);
+  width: 62%;
+  /* background-color: rgb(0, 128, 107); */
+  border:1px solid black;
   min-height: 500px; 
   text-align:center;
+}
+
+button {
+  margin: 2px 10px 10px 2px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #282c34;
+  color: white;
+  
 }
